@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RCCG SS Sales Journal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="cropped-ss_logo.png" type="image/x-icon">
+</head>
+<body>
+    <main>
+        <div id="header">
+                <img src="cropped-ss_logo.png" alt="" id="logo">
+                <h1>RCCG SS SALES JOURNAL</h1>
+            </div>
+        <section id="form">
+            <form method="post">
+                <label for="Date">DATE:</label>
+                <input type="date" id="Date" name="Date">
+                <br><br>
+                <label for="Name">NAME:</label>
+                <input type="text" id="Name" name="Name">
+                <br><br>
+                <label for="Item">ITEM:</label>
+                <input type="text" id="Item" name="Item">
+                <br><br>
+                <label for="Quantity">QUANTITY:</label>
+                <input type="number" id="Quantity" name="Quantity">
+                <br><br>
+                <label for="Price">PRICE:</label>
+                <input type="number" id="Price" name="Price" step="0.01">
+                <br><br>
+                <input type="submit" value="Add value" id="submit">
+                <button type="reset" id="reset">Reset</button>
+        </form>
+        </section>
+        <section id="table">
+            <table id="salestable">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <button id="excel" onclick="exportExcel()">Export to Excel</button>
+            <button id="clear" onclick="clearSales()">Clear Sales</button>
+        </section>
+    </main>
+    <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
