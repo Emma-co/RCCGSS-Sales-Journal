@@ -9,14 +9,15 @@ form.addEventListener("submit", function(event) {
         name: document.getElementById("Name").value,
         item: document.getElementById("Item").value,
         quantity: Number(document.getElementById("Quantity").value),
-        price: parseFloat(document.getElementById("Price").value)
+        price: parseFloat(document.getElementById("Price").value),
+        discount: parseFloat(document.getElementById("Discount").value) || 0
 
     }
     if (isNaN(sale.price) || isNaN(sale.quantity) || sale.item.trim() === "" || sale.date.trim() === "") {
         alert("Please fill in all fields with valid information.");
         return;
     }
-    sale.total = sale.quantity * sale.price;
+    sale.total = sale.quantity * sale.price - sale.discount;
     sales.push(sale);
     localStorage.setItem("sales", JSON.stringify(sales));
     let reset  = document.getElementById("reset");
@@ -43,6 +44,7 @@ function makeTable(){
             <td>${sale.item}</td>
             <td>${sale.quantity}</td>
             <td>${sale.price.toFixed(2)}</td>
+            <td>${sale.discount || 0}</td>
             <td>${sale.total.toFixed(2)}</td>
         </tr>
         `
